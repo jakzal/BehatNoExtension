@@ -1,0 +1,37 @@
+{
+    "name": "jakzal/behat-service-container-extension",
+    "description": "Service container extension for Behat",
+    "type": "library",
+    "keywords": ["behat","bdd","dependency-injection"],
+    "homepage": "https://github.com/jakzal/BehatServiceContainerExtension",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0",
+        "behat/behat": "~3.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0",
+        "bossa/phpspec2-expect": "~1.0",
+        "symfony/process": "~2.3",
+        "symfony/filesystem": "~2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Zalas\\Behat\\ServiceContainerExtension\\": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "authors": [
+        {
+            "name": "Jakub Zalas",
+            "email": "jakub@zalas.pl"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
