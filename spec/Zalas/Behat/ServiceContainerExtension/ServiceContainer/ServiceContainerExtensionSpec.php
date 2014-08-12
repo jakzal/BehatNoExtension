@@ -11,4 +11,9 @@ class ServiceContainerExtensionSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Behat\Testwork\ServiceContainer\Extension');
     }
+
+    function it_has_a_config_key()
+    {
+        $this->getConfigKey()->shouldReturn('service_container');
+    }
 }
