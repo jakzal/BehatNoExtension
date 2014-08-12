@@ -15,13 +15,8 @@ Feature: Importing service definitions
     And a config file "features/bootstrap/config/services.yml":
     """
     services:
-      acme.my_service:
-        class: Acme\MyService
-
       acme.my_service_argument_resolver:
         class: Acme\Argument\MyServiceArgumentResolver
-        arguments:
-          - @service_container
         tags:
           - { name: context.argument_resolver }
     """
@@ -44,21 +39,15 @@ Feature: Importing service definitions
 
     namespace Acme\Argument;
 
+    use Acme\MyService;
     use Behat\Behat\Context\Argument\ArgumentResolver;
     use Symfony\Component\DependencyInjection\ContainerInterface;
 
     class MyServiceArgumentResolver implements ArgumentResolver
     {
-        private $container;
-
-        public function __construct(ContainerInterface $container)
-        {
-            $this->container = $container;
-        }
-
         public function resolveArguments(\ReflectionClass $classReflection, array $arguments)
         {
-            $arguments[0] = $this->container->get('acme.my_service');
+            $arguments[0] = new MyService();
 
             return $arguments;
         }
@@ -75,7 +64,7 @@ Feature: Importing service definitions
     {
         private $myService;
 
-        public function __construct(MyService $myService)
+        public function __construct(MyService $myService = null)
         {
             $this->myService = $myService;
         }
