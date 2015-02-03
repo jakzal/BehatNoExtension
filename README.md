@@ -1,6 +1,6 @@
-Service Container Extension
-===========================
+Behat No Extension
+==================
 
-This Behat extension makes it easier to extend Behat without a need to write
-an extension yourself.
+This Behat extension makes it possible to extend Behat without needing to write
+extension yourself.
 
