@@ -8,7 +8,7 @@ Feature: Importing service definitions
     """
     default:
       extensions:
-        Zalas\Behat\ServiceContainerExtension:
+        Zalas\Behat\NoExtension:
           imports:
             - features/bootstrap/config/services.yml
     """

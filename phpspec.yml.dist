@@ -1,0 +1,4 @@
+suites:
+  default:
+    namespace: Zalas\Behat\NoExtension
+    psr4_prefix: Zalas\Behat\NoExtension

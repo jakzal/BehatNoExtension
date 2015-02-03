@@ -1,6 +1,6 @@
 <?php
 
-namespace Zalas\Behat\ServiceContainerExtension\ServiceContainer;
+namespace Zalas\Behat\NoExtension\ServiceContainer;
 
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
@@ -10,7 +10,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class ServiceContainerExtension implements Extension
+class NoExtension implements Extension
 {
     /**
      * {@inheritdoc}
@@ -24,7 +24,7 @@ class ServiceContainerExtension implements Extension
      */
     public function getConfigKey()
     {
-        return 'service_container';
+        return 'no';
     }
 
     /**
@@ -65,7 +65,7 @@ class ServiceContainerExtension implements Extension
     {
         $classLoader = new ClassLoader();
         foreach ($container->getParameter('class_loader.prefixes') as $namespace => $path) {
-            $classLoader->addPrefix($namespace, str_replace('%paths.base%/', '', $path));
+            $classLoader->addPrefix($namespace, str_replace('%paths.base%', $container->getParameter('paths.base'), $path));
         }
         $classLoader->register();
     }
