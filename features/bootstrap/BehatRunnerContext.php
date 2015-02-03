@@ -28,7 +28,7 @@ class BehatRunnerContext implements Context
      */
     public function bootstrap()
     {
-        $this->workingDir = sprintf('%s/%s/', sys_get_temp_dir(), uniqid('BehatServiceContainerExtension_'));
+        $this->workingDir = sprintf('%s/%s/', sys_get_temp_dir(), uniqid('BehatNoExtension_'));
         $this->getFilesystem()->mkdir($this->workingDir, 0777);
 
         $this->phpBin = $this->findPhpBinary();
