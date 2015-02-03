@@ -1,7 +1,7 @@
 Feature: Importing service definitions
-  In order to use services in my contexts
-  I needs an easy way to register them
-  As an Application Developer
+  In order to extend Behat without having to write an extension
+  I need to import service definitions
+  As a Behat User
 
   Scenario: Importing services from a yaml file
     Given a behat configuration:
@@ -47,7 +47,11 @@ Feature: Importing service definitions
     {
         public function resolveArguments(\ReflectionClass $classReflection, array $arguments)
         {
-            $arguments[0] = new MyService();
+            foreach ($classReflection->getConstructor()->getParameters() as $i => $parameter) {
+                if ('Acme\MyService' === $parameter->getClass()->getName()) {
+                    $arguments[$i] = new MyService();
+                }
+            }
 
             return $arguments;
         }
