@@ -62,7 +62,10 @@ parameters:
   acme.foo: boo!
 ```
 
-Parameters defined in such a way are also available in ``behat.yml``:
+Defining parameters
+-------------------
+
+Parameters defined in imported files are also available in ``behat.yml``:
 
 ```yaml
 # behat.yml
@@ -73,5 +76,19 @@ default:
         - SearchContext:
             myFoo: %acme.foo%
   # ...
+```
+
+Furthermore, parameters can also be defined as part of extension's configuration directly in ``behat.yml``:
+
+```yaml
+# behat.yml
+default:
+  extensions:
+    Zalas\Behat\NoExtension:
+      parameters:
+        foo: bar
+        baz:
+          a: 1
+          b: bazinga!
 ```
 

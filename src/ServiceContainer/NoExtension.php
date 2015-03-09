@@ -41,6 +41,7 @@ class NoExtension implements Extension
     {
         $config = $builder->children();
         $config->arrayNode('imports')->prototype('scalar');
+        $config->arrayNode('parameters')->prototype('variable');
     }
 
     /**
@@ -55,6 +56,10 @@ class NoExtension implements Extension
 
         foreach ($config['imports'] as $file) {
             $yamlLoader->load($file);
+        }
+
+        foreach ($config['parameters'] as $name => $value) {
+            $container->setParameter($name, $value);
         }
     }
 
