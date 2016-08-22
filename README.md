@@ -14,13 +14,13 @@ Installation
 
 This extension requires:
 
-* Behat 3.0+
-* PHP 5.3+
+* Behat ^3.0
+* PHP ^5.3||^7.0
 
 The easiest way to install it is to use Composer
 
 ```
-$ composer require --dev zalas/behat-no-extension:^1.0
+$ composer require --dev zalas/behat-no-extension
 ```
 
 Next, activate the extension in your ``behat.yml``:
