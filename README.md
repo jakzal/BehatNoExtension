@@ -3,6 +3,7 @@ Behat No Extension
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/build-status/master)
+[![Build Status](https://travis-ci.org/jakzal/BehatNoExtension.svg?branch=master)](https://travis-ci.org/jakzal/BehatNoExtension)
 
 This Behat extension makes it possible to extend Behat without needing to write
 extension yourself.
@@ -13,13 +14,13 @@ Installation
 
 This extension requires:
 
-* Behat 3.0+
-* PHP 5.3+
+* Behat ^3.0
+* PHP ^5.3||^7.0
 
 The easiest way to install it is to use Composer
 
 ```
-$ composer require --dev zalas/behat-no-extension:^1.0
+$ composer require --dev zalas/behat-no-extension
 ```
 
 Next, activate the extension in your ``behat.yml``:
