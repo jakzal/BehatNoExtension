@@ -3,6 +3,7 @@ Behat No Extension
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jakzal/BehatNoExtension/build-status/master)
+[![Build Status](https://travis-ci.org/jakzal/BehatNoExtension.svg?branch=master)](https://travis-ci.org/jakzal/BehatNoExtension)
 
 This Behat extension makes it possible to extend Behat without needing to write
 extension yourself.
