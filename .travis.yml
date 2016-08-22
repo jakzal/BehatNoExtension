@@ -13,7 +13,7 @@ matrix:
     fast_finish: true
 
 before_script:
-  - phpenv config-rm xdebug.ini
+  - if [[ "$(php --version | grep -cim1 xdebug)" -ge 1 ]]; then phpenv config-rm xdebug.ini; fi
   - if [[ ! $deps || $deps = high ]]; then composer install; else composer update --prefer-lowest --prefer-stable; fi
 
 script:
