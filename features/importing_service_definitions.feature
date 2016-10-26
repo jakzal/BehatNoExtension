@@ -10,7 +10,7 @@ Feature: Importing service definitions
       extensions:
         Zalas\Behat\NoExtension:
           imports:
-            - features/bootstrap/config/services.yml
+            - %paths.base%/features/bootstrap/config/services.yml
     """
     And a config file "features/bootstrap/config/services.yml":
     """
