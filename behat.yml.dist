@@ -1,8 +1,9 @@
 default:
+  gherkin:
+    filters:
+      tags: "~@wip"
   suites:
     default:
-      filters:
-        tags: "~@wip"
       contexts:
         - BehatRunnerContext
 
