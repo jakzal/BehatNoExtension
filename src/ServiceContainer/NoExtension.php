@@ -55,6 +55,7 @@ class NoExtension implements Extension
         $yamlLoader = new YamlFileLoader($container, new FileLocator($basePath));
 
         foreach ($config['imports'] as $file) {
+            $file = str_replace('%paths.base%', $basePath, $file);
             $yamlLoader->load($file);
         }
 
