@@ -6,14 +6,14 @@
     "homepage": "https://github.com/jakzal/BehatNoExtension",
     "license": "MIT",
     "require": {
-        "php": "^5.3||^7.0",
-        "behat/behat": "~3.0"
+        "php": "^7.0",
+        "behat/behat": "^3.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^2.1",
-        "bossa/phpspec2-expect": "^1.0",
-        "symfony/process": "~2.3|~3.0",
-        "symfony/filesystem": "~2.3|~3.0"
+        "phpspec/phpspec": "^3.3",
+        "bossa/phpspec2-expect": "^2.2",
+        "symfony/process": "~3.2||^4.0",
+        "symfony/filesystem": "~3.2||^4.0"
     },
     "autoload": {
         "psr-4": {
