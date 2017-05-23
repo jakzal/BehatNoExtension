@@ -15,7 +15,7 @@ Installation
 This extension requires:
 
 * Behat ^3.0
-* PHP ^5.3||^7.0
+* PHP ^7.0
 
 The easiest way to install it is to use Composer
 
