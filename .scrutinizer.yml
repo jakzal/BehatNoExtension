@@ -1,6 +1,9 @@
 inherit: true
 
 build:
+    environment:
+        php:
+            version: 7.1
     project_setup:
     tests:
         override:
