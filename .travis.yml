@@ -2,9 +2,9 @@ language: php
 
 matrix:
     include:
-        - php: 7.0
-          env: deps=high
         - php: 7.1
+          env: deps=high
+        - php: 7.2
           env: deps=low
     fast_finish: true
 

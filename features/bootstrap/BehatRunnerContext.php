@@ -60,6 +60,36 @@ class BehatRunnerContext implements Context
     }
 
     /**
+     * @Given :namespace classes are autoloaded from :path
+     */
+    public function classesAreAutoloadedFrom(string $namespace, string $path)
+    {
+        $autoloader = <<<'EOT'
+<?php
+spl_autoload_register(function (string $class) {
+    $prefix = '%NAMESPACE%\\';
+
+    $len = strlen($prefix);
+    if (strncmp($prefix, $class, $len) !== 0) {
+        return;
+    }
+
+    $relative_class = substr($class, $len);
+    $file = __DIR__ . '/../%PATH%/' . str_replace('\\', '/', $relative_class) . '.php';
+
+    if (file_exists($file)) {
+        require $file;
+    }
+});
+EOT;
+
+        $this->getFilesystem()->dumpFile(
+            $this->workingDir.'/vendor/autoload.php',
+            strtr($autoloader, ['%NAMESPACE%' => $namespace, '%PATH%' => $path])
+        );
+    }
+
+    /**
      * @When /^I run behat$/
      */
     public function iRunBehat()

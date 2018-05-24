@@ -15,7 +15,7 @@ Installation
 This extension requires:
 
 * Behat ^3.0
-* PHP ^7.0
+* PHP ^7.1
 
 The easiest way to install it is to use Composer
 
@@ -62,6 +62,9 @@ services:
 parameters:
   acme.foo: boo!
 ```
+
+Note that any classes you'd like to use should be autoloaded by composer.
+For the example above, `autoload-dev` or `autoload` should include the `Acme\\` autoloader prefix.
 
 Defining parameters
 -------------------

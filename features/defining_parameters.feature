@@ -11,7 +11,7 @@ Feature: Defining parameters
         acme:
           contexts:
             - FeatureContext:
-                answers: %answers%
+                answers: '%answers%'
       extensions:
         Zalas\Behat\NoExtension:
           imports:
@@ -76,7 +76,7 @@ Feature: Defining parameters
         acme:
           contexts:
             - FeatureContext:
-                answers: %answers%
+                answers: '%answers%'
       extensions:
         Zalas\Behat\NoExtension:
           parameters:
