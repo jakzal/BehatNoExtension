@@ -12,6 +12,7 @@ Feature: Importing service definitions
           imports:
             - features/bootstrap/config/services.yml
     """
+    And "Acme" classes are autoloaded from "features/bootstrap/Acme"
     And a config file "features/bootstrap/config/services.yml":
     """
     services:

@@ -4,7 +4,6 @@ namespace Zalas\Behat\NoExtension\ServiceContainer;
 
 use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
-use Symfony\Component\ClassLoader\ClassLoader;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -49,8 +48,6 @@ class NoExtension implements Extension
      */
     public function load(ContainerBuilder $container, array $config)
     {
-        $this->registerAutoloader($container);
-
         $basePath = $container->getParameter('paths.base');
         $yamlLoader = new YamlFileLoader($container, new FileLocator($basePath));
 
@@ -62,17 +59,5 @@ class NoExtension implements Extension
         foreach ($config['parameters'] as $name => $value) {
             $container->setParameter($name, $value);
         }
-    }
-
-    /**
-     * @param ContainerBuilder $container
-     */
-    private function registerAutoloader(ContainerBuilder $container)
-    {
-        $classLoader = new ClassLoader();
-        foreach ($container->getParameter('class_loader.prefixes') as $namespace => $path) {
-            $classLoader->addPrefix($namespace, str_replace('%paths.base%', $container->getParameter('paths.base'), $path));
-        }
-        $classLoader->register();
     }
 }
