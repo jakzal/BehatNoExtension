@@ -10,10 +10,10 @@
         "behat/behat": "~3.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^2.1",
-        "bossa/phpspec2-expect": "^1.0",
-        "symfony/process": "~2.3|~3.0",
-        "symfony/filesystem": "~2.3|~3.0"
+        "phpspec/phpspec": "^2.1||^3.4||^4.3",
+        "bossa/phpspec2-expect": "^1.0||^2.0||^3.0",
+        "symfony/process": "~2.7||~3.4||~4.0",
+        "symfony/filesystem": "~2.7||~3.4||~4.0"
     },
     "autoload": {
         "psr-4": {
