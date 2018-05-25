@@ -1,4 +1,3 @@
-@wip
 Feature: Injecting services into contexts
   In order to make the maintenance of my contexts easier
   I need to delegate creation of context dependencies
