@@ -10,8 +10,7 @@ matrix:
 
 before_script:
   - if [[ "$(php --version | grep -cim1 xdebug)" -ge 1 ]]; then phpenv config-rm xdebug.ini; fi
-  - if [[ ! $deps || $deps = high ]]; then composer install; else composer update --prefer-lowest --prefer-stable; fi
+  - if [[ $deps = low ]]; then make update-min; else make install; fi
 
 script:
-  - ./vendor/bin/phpspec run --format=dot
-  - ./vendor/bin/behat --format=progress
+  - if [[ $deps = low ]]; then make test-min; else make test; fi

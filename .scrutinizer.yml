@@ -7,8 +7,7 @@ build:
     project_setup:
     tests:
         override:
-            - ./vendor/bin/phpspec run --format=dot
-            - ./vendor/bin/behat --format=progress
+            - make test
 
 filter:
     paths: [src/*]
