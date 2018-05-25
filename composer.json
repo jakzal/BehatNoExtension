@@ -22,6 +22,11 @@
             "Zalas\\Behat\\NoExtension\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Zalas\\Behat\\NoExtension\\": "spec"
+        }
+    },
     "authors": [
         {
             "name": "Jakub Zalas",
