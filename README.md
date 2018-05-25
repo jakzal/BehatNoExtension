@@ -137,7 +137,7 @@ default:
     search:
       contexts:
         - SearchContext:
-            myFoo: %acme.foo%
+            myFoo: '%acme.foo%'
   # ...
 ```
 
@@ -152,6 +152,6 @@ default:
         foo: bar
         baz:
           a: 1
-          b: bazinga!
+          b: 'bazinga!'
 ```
 
