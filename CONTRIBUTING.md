@@ -14,9 +14,3 @@ Please note we have a [code of conduct](CODE_OF_CONDUCT.md). Please follow it in
 * Provide tests for any code you write.
 * Make sure all tests are passing.
 * Run `make test` and `make test-min` to ensure all quality assurance checks pass.
-
-## Contributing
-
-Please read the [Contributing guide](CONTRIBUTING.md) to learn about contributing to this project.
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
-By participating in this project you agree to abide by its terms.
