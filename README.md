@@ -66,6 +66,65 @@ parameters:
 Note that any classes you'd like to use should be autoloaded by composer.
 For the example above, `autoload-dev` or `autoload` should include the `Acme\\` autoloader prefix.
 
+Injecting services into contexts
+--------------------------------
+
+Enable the argument resolver to take advantage of the built in support for service injection:
+
+```yaml
+# behat.yml
+default:
+  extensions:
+    Zalas\Behat\NoExtension:
+      argument_resolver: true
+      imports:
+        - features/bootstrap/config/services.yml
+```
+
+Assuming services you'd like to inject into contexts are defined in `features/bootstrap/Acme`,
+and they're autoloaded by composer, you can now start defining them in your configuration file:
+
+```yaml
+# features/bootstrap/config/services.yml
+services:
+
+    Acme\:
+        resource: '../Acme'
+        public: true
+        autowire: true
+```
+
+The above example relies on autoworing, but you could also define each service explicitly.
+
+An example composer autoloader configuration:
+
+```json
+{
+    "autoload-dev": {
+        "psr-4": {
+            "Acme\\": "features/bootstrap/Acme"
+        }
+    }
+}
+```
+
+Given there's a class `Acme\Foo` defined, it can now be injected into contexts:
+
+```php
+use Acme\Foo;
+use Behat\Behat\Context\Context;
+
+class FeatureContext implements Context
+{
+    private $foo;
+
+    public function __construct(Foo $foo)
+    {
+        $this->foo = $foo;
+    }
+}
+```
+
 Defining parameters
 -------------------
 
