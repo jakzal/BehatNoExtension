@@ -12,8 +12,9 @@
     "require-dev": {
         "phpspec/phpspec": "^4.3",
         "bossa/phpspec2-expect": "^3.0",
-        "symfony/process": "^4.0",
-        "symfony/filesystem": "^4.0"
+        "symfony/process": "^3.3||^4.0",
+        "symfony/filesystem": "^3.3||^4.0",
+        "sebastian/comparator": "^3.0"
     },
     "autoload": {
         "psr-4": {
