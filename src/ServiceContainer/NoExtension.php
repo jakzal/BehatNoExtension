@@ -33,7 +33,7 @@ class NoExtension implements Extension
         $config = $builder->children();
         $config->arrayNode('imports')->prototype('scalar');
         $config->arrayNode('parameters')->prototype('variable');
-        $config->booleanNode('argument_resolver');
+        $config->booleanNode('argument_resolver')->defaultFalse();
     }
 
     public function load(ContainerBuilder $container, array $config)
