@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Zalas\Behat\NoExtension\Context\Argument\ServiceArgumentResolver;
 
-class NoExtension implements Extension
+final class NoExtension implements Extension
 {
     public function process(ContainerBuilder $container)
     {
