@@ -7,7 +7,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.1",
-        "behat/behat": "^3.0"
+        "behat/behat": "^3.0",
+        "symfony/dependency-injection": "^3.3||^4.0"
     },
     "require-dev": {
         "phpspec/phpspec": "^4.3",
