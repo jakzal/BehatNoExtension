@@ -15,7 +15,7 @@
         "bossa/phpspec2-expect": "^3.0",
         "symfony/process": "^3.3||^4.0",
         "symfony/filesystem": "^3.3||^4.0",
-        "sebastian/comparator": "^3.0"
+        "sebastian/comparator": "^2.0||^3.0"
     },
     "autoload": {
         "psr-4": {
