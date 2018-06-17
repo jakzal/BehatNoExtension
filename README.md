@@ -54,8 +54,7 @@ configuration files:
 ```yaml
 # features/bootstrap/config/services.yml
 services:
-  acme.simple:
-    class: Acme\SimpleArgumentResolver
+  Acme\SimpleArgumentResolver:
     tags:
       - { name: context.argument_resolver }
 
