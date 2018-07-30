@@ -8,7 +8,11 @@ use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Loader\DelegatingLoader;
+use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Zalas\Behat\NoExtension\Context\Argument\ServiceArgumentResolver;
@@ -46,11 +50,16 @@ final class NoExtension implements Extension
     private function loadImports(ContainerBuilder $container, array $config): void
     {
         $basePath = $container->getParameter('paths.base');
-        $yamlLoader = new YamlFileLoader($container, new FileLocator($basePath));
+        $resolver = new LoaderResolver([
+            new PhpFileLoader($container, new FileLocator($basePath)),
+            new XmlFileLoader($container, new FileLocator($basePath)),
+            new YamlFileLoader($container, new FileLocator($basePath)),
+        ]);
+        $loader = new DelegatingLoader($resolver);
 
         foreach ($config['imports'] as $file) {
             $file = \str_replace('%paths.base%', $basePath, $file);
-            $yamlLoader->load($file);
+            $loader->load($file);
         }
     }
 

@@ -3,24 +3,8 @@ Feature: Importing service definitions
   I need to import service definitions
   As a Behat User
 
-  Scenario: Importing services from a yaml file
-    Given a behat configuration:
-    """
-    default:
-      extensions:
-        Zalas\Behat\NoExtension:
-          imports:
-            - features/bootstrap/config/services.yml
-    """
-    And "Acme" classes are autoloaded from "features/bootstrap/Acme"
-    And a config file "features/bootstrap/config/services.yml":
-    """
-    services:
-      acme.my_service_argument_resolver:
-        class: Acme\Argument\MyServiceArgumentResolver
-        tags:
-          - { name: context.argument_resolver }
-    """
+  Background:
+    Given "Acme" classes are autoloaded from "features/bootstrap/Acme"
     And a class file "features/bootstrap/Acme/MyService.php":
     """
     <?php
@@ -101,6 +85,66 @@ Feature: Importing service definitions
         Given my service was injected to the context file
         Then I should be able to use it
     """
+
+  Scenario: Importing services from a yaml file
+    Given a behat configuration:
+    """
+    default:
+      extensions:
+        Zalas\Behat\NoExtension:
+          imports:
+            - features/bootstrap/config/services.yml
+    """
+    And a config file "features/bootstrap/config/services.yml":
+    """
+    services:
+      acme.my_service_argument_resolver:
+        class: Acme\Argument\MyServiceArgumentResolver
+        tags:
+          - { name: context.argument_resolver }
+    """
     When I run behat
     Then it should pass
 
+  Scenario: Importing services from a xml file
+    Given a behat configuration:
+    """
+    default:
+      extensions:
+        Zalas\Behat\NoExtension:
+          imports:
+            - features/bootstrap/config/services.xml
+    """
+    And a config file "features/bootstrap/config/services.xml":
+    """
+    <container xmlns="http://symfony.com/schema/dic/services"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+        <services>
+            <service id="acme.my_service_argument_resolver" class="Acme\Argument\MyServiceArgumentResolver">
+                <tag name="context.argument_resolver" />
+            </service>
+        </services>
+    </container>
+    """
+    When I run behat
+    Then it should pass
+
+  Scenario: Importing services from a php file
+    Given a behat configuration:
+    """
+    default:
+      extensions:
+        Zalas\Behat\NoExtension:
+          imports:
+            - features/bootstrap/config/services.php
+    """
+    And a config file "features/bootstrap/config/services.php":
+    """
+    <?php
+    $container
+        ->register('acme.my_service_argument_resolver', 'Acme\Argument\MyServiceArgumentResolver')
+        ->addTag('context.argument_resolver');
+    """
+    When I run behat
+    Then it should pass
