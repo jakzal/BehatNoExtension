@@ -62,6 +62,8 @@ parameters:
   acme.foo: boo!
 ```
 
+Yaml, xml and php formats are currently supported.
+
 Note that any classes you'd like to use should be autoloaded by composer.
 For the example above, `autoload-dev` or `autoload` should include the `Acme\\` autoloader prefix.
 
