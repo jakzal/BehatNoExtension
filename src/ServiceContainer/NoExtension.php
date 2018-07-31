@@ -51,9 +51,9 @@ final class NoExtension implements Extension
     {
         $basePath = $container->getParameter('paths.base');
         $resolver = new LoaderResolver([
+            new YamlFileLoader($container, new FileLocator($basePath)),
             new PhpFileLoader($container, new FileLocator($basePath)),
             new XmlFileLoader($container, new FileLocator($basePath)),
-            new YamlFileLoader($container, new FileLocator($basePath)),
         ]);
         $loader = new DelegatingLoader($resolver);
 
