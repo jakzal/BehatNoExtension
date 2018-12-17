@@ -22,11 +22,11 @@ test-min: update-min cs phpspec behat
 .PHONY: test-min
 
 cs: vendor/bin/php-cs-fixer
-	vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
+	PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --dry-run --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs
 
 cs-fix: vendor/bin/php-cs-fixer
-	vendor/bin/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
+	PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --allow-risky=yes --no-interaction --ansi fix
 .PHONY: cs-fix
 
 phpspec: vendor/bin/phpspec

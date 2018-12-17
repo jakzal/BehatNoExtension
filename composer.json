@@ -11,7 +11,7 @@
         "symfony/dependency-injection": "^3.3||^4.0"
     },
     "require-dev": {
-        "phpspec/phpspec": "^4.3",
+        "phpspec/phpspec": "^5.1",
         "bossa/phpspec2-expect": "^3.0",
         "symfony/process": "^3.3||^4.0",
         "symfony/filesystem": "^3.3||^4.0",
